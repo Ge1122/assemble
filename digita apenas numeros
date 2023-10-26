@@ -1,0 +1,37 @@
+inicio: mov	bl,90
+	mov	cl,00
+
+prox:   in	00
+	cmp	al,0d
+	jz	dis1
+	cmp	al,30
+	js	prox
+	cmp	al,0d
+	cmp	al,3a
+	jns	prox
+	inc	cl
+	mov	[bl],al	
+	inc	bl
+	jmp	prox
+		
+
+dis1:	push	cl
+	pop	bl
+
+dis:	mov	cl,c0
+	mov	dl,90
+	
+
+la:	mov	al,[dl]
+	mov	[cl],al
+	inc	DL
+	inc 	cl
+	dec	bl
+	jnz	la
+	end
+	
+	
+	
+
+	
+	
